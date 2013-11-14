@@ -24,6 +24,6 @@
       "prepublish": "coffee -o js -c lib/ && cp -r lib/font/data js/font/data",
       "postpublish": "rm -rf ./js"
   },
-  "main": "./js/document",
+  "main": "./index",
   "engine": [ "node >= v0.6.0" ]
 }
