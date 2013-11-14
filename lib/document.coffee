@@ -43,6 +43,8 @@ class PDFDocument
         if @options.info
             @info[key] = val for key, val of @options.info
             delete @options.info
+
+        @visible = true
         
         # Add the first page
         @addPage()
@@ -81,9 +83,12 @@ class PDFDocument
         
     ref: (data) ->
         @store.ref(data)
-        
+
+    setVisibility: (visibility) ->
+        @visible = visibility
+
     addContent: (str) ->
-        @page.content.add str
+        @page.content.add str if @visible
         return this # make chaining possible
         
     write: (filename, fn) ->

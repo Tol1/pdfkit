@@ -24,7 +24,19 @@ module.exports =
     moveUp: (lines = 1) ->
         @y -= @currentLineHeight(true) * lines + @_lineGap
         return this
-        
+
+    predictText: (text, textX, textY, options) ->
+        x = @x
+        y = @y
+        @setVisibility off
+        @text text, textX, textY, options
+        @setVisibility on
+        finalX = @x
+        finalY = @y
+        @x = x
+        @y = y
+        {origX: textX, origY: textY, finalX: finalX, finalY: finalY, height: (finalY - textY)}
+
     text: (text, x, y, options) ->
         options = @_initOptions(x, y, options)
         
