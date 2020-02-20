@@ -69,7 +69,7 @@ class LineWrapper extends EventEmitter
                 while word.length
                     # fit as much of the word as possible into the space we have
                     l = word.length
-                    while w > @spaceLeft
+                    while w > @spaceLeft && w
                         w = @wordWidth word.slice(0, --l)
                         
                     # send a required break unless this is the last piece
