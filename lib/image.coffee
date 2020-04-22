@@ -15,7 +15,6 @@ class PDFImage
     else
       if match = /^data:.+;base64,(.*)$/.exec(src)
         data = Buffer.from(match[1], 'base64')
-        console.log(data)
 
       else
         data = fs.readFileSync src
